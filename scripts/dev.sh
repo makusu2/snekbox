@@ -13,8 +13,8 @@ if [ "$1" = "--build" ]; then
         --build-arg DEV=1 \
         -q \
         . \
-        >/dev/null \
-    && printf " done!\n" || exit "$?"
+        >/dev/null &&
+        printf " done!\n" || exit "$?"
 
     if [ "$1" = "--clean" ]; then
         shift
@@ -23,8 +23,8 @@ if [ "$1" = "--build" ]; then
         if [ -n "${dangling_imgs}" ]; then
             printf "Removing dangling images..."
 
-            docker rmi $dangling_imgs >/dev/null \
-            && printf " done!\n" || exit "$?"
+            docker rmi $dangling_imgs >/dev/null &&
+            printf " done!\n" || exit "$?"
         fi
     fi
 fi
